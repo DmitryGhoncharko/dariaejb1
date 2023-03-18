@@ -3,8 +3,9 @@ package by.webproj.carshowroom.command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.Singleton;
 import java.util.Optional;
-
+@Singleton
 public class SimpleServiceLocator implements ServiceLocator {
     private static final Logger LOG = LoggerFactory.getLogger(SimpleServiceLocator.class);
     private static final Cache CACHE = new Cache();

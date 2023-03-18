@@ -4,8 +4,9 @@ import by.webproj.carshowroom.command.CommandRequest;
 import by.webproj.carshowroom.command.CommandResponse;
 
 
+import javax.ejb.Singleton;
 import javax.servlet.http.HttpServletRequest;
-
+@Singleton
 public class SimpleRequestFactory implements RequestFactory {
 
     @Override
