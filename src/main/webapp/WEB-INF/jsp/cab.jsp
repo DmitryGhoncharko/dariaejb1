@@ -38,51 +38,42 @@
           <div class="row">
             <div class="col-md-12">
               <h3 class="text-center">
-                Страница добавления типа деталей машины
+               Личный кабинет
               </h3>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <form role="form" action="/controller?command=addNewDetail" method="post">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">
-                    Тип детали
-                  </label>
-                  <div class="input-group mb-3" id="exampleInputEmail1">
-                    <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Выберите</label>
-                    </div>
-                    <select class="custom-select" id="inputGroupSelect01" name="detailType">
-                      <option selected>Тип детали</option>
-                      <option value="1">Мотор</option>
-                      <option value="2">Подвеска</option>
-                      <option value="3">Кузов</option>
-                      <option value="4">Салон</option>
-                      <option value="5">Отдельно</option>
-                      <option value="6">Дополнительно</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
+              <span class="heading">Личный кабинет</span>
+               <form action="/carshowroom-1.0-SNAPSHOT/controller?command=updatePerson" method="post">
+                 <input hidden="" value="${requestScope.person.id}" name="id">
+                 <div class="form-group">
+                   <label for="validationServer03">Логин</label>
+                   <h2 type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation" id="validationServer03" name="login" placeholder="Ваш логин" required >${requestScope.person.login}</h2>
+                 </div>
+                 <div class="form-group help">
+                   <label for="1">Имя</label>
+                   <input type="text" id="1" name="name" value="${requestScope.person.name}" class="form-control needs-validation" placeholder="Ваше имя" required>
+                 </div>
+                 <div class="form-group help">
+                   <label for="2">Год рождения</label>
+                   <input type="text" pattern="[0-9]{3,}" value="${requestScope.person.yearOfBirth}" id="2" name="year" class="form-control needs-validation" placeholder="Ваш год рождения" required>
+                 </div>
+                 <input hidden="" value="${requestScope.person.login}" name="login">
+                 <input hidden="" value="${requestScope.person.password}" name="password">
 
-                  <label for="exampleInputPassword1">
-                    Название детали
-                  </label>
-                  <input type="text" class="form-control" name="detailName" id="exampleInputPassword1" />
-                  <label for="exampleInputPassword2">
-                    Вес детали
-                  </label>
-                  <input type="text" class="form-control" name="detailWeight" id="exampleInputPassword2" />
-                </div>
-                <c:if test="${not empty requestScope.error}">
-                  <h1>Не получилось добавить деталь.Возможно деталь с таким именем уже существует!</h1>
-                </c:if>
-                <button type="submit" class="btn btn-primary">
-                  Добавить деталь
-                </button>
-              </form>
-            </div>
+                 <div class="form-group">
+                   <div class="row">
+                     <div class="col-md-6">
+                       <button type="submit" class="btn btn-default">Обновить</button>
+                     </div>
+                     <div class="col-md-6">
+                       <a class="btn btn-default" href="/carshowroom-1.0-SNAPSHOT/controller?command=main_page">На главную</a>
+                     </div>
+                   </div>
+                 </div>
+               </form>
+          </div>
           </div>
         </div>
       </div>

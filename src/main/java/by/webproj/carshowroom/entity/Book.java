@@ -12,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 @EqualsAndHashCode
 @ToString
+@Builder
 @Table(name = "book")
 public class Book {
     @Id

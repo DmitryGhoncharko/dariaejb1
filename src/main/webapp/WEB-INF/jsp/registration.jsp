@@ -180,7 +180,7 @@
 <div class="container-fluide">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal needs-validation" action="/controller?command=registrationcmnd" method="post" novalidate>
+            <form class="form-horizontal needs-validation" action="/carshowroom-1.0-SNAPSHOT/controller?command=registrationcmnd" method="post" novalidate>
                 <span class="heading">Авторизация</span>
                 <div class="form-group">
                     <input type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation" id="validationServer03" name="login" placeholder="Ваш логин" required>
@@ -195,13 +195,19 @@
                         Пароль должен быть минимум шесть символов, пароль должен содержать буквы цифры и спец символы
                     </div>
                 </div>
+                <div class="form-group help">
+                    <input type="text" name="name" class="form-control needs-validation" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group help">
+                    <input type="text" name="year" pattern="[0-9]{3,}" class="form-control needs-validation" placeholder="Ваш год рождения" required>
+                </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-default">Зарегистрироваться</button>
                         </div>
                         <div class="col-md-6">
-                            <a class="btn btn-default" href="/controller?command=main_page">На главную</a>
+                            <a class="btn btn-default" href="/carshowroom-1.0-SNAPSHOT/controller?command=login">На главную</a>
                         </div>
                     </div>
                 </div>

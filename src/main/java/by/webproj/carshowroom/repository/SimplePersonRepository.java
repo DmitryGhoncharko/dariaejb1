@@ -7,18 +7,21 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
+import javax.ejb.Stateful;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Slf4j
-@Singleton
+@RequiredArgsConstructor
 public class SimplePersonRepository implements PersonRepository {
-    @EJB
+
     private final HibernateSessionFactoryUtil hibernateSessionFactoryUtil;
 
     @Override
@@ -45,8 +48,9 @@ public class SimplePersonRepository implements PersonRepository {
     @Override
     public void update(Person person) throws RepositoryException {
         try (Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-            session.update(person);
-
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(person);
+            transaction.commit();
         } catch (HibernateException e) {
             log.error("Cannot update person", e);
             throw new RepositoryException("Cannot update person", e);
@@ -67,12 +71,10 @@ public class SimplePersonRepository implements PersonRepository {
     @Override
     public Optional<Person> getByLogin(String login) throws RepositoryException {
         try (Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-            Query query = session.createQuery("select id, name , yearOfBirth, login, password from Person  where login = ?");
-            query.setParameter(0, login);
-            List<Person> people = (List<Person>) query.list();
-            if (people.size() > 0) {
-                return Optional.of(people.get(0));
-            }
+            Query<Person> query = session.createQuery("select id, name , yearOfBirth, login, password from Person  where login = :userlogin");
+            query.setParameter("userlogin",login);
+            List<Person> people = query.getResultList();
+
             return Optional.empty();
         } catch (HibernateException e) {
             log.error("Cannot get all persons", e);

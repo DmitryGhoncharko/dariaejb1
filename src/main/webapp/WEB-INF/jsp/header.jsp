@@ -16,15 +16,15 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <c:choose>
-            <c:when test="${not empty sessionScope.user}">
-                <a class="nav-link" href="/controller?command=/" role="button">Добавить новую деталь</a>
-                <a class="nav-link" href="/controller?command=task" role="button">Сформировать отчет</a>
-                <a class="nav-link" href="/controller?command=allDetails" role="button">Посмотреть добавленные детали</a>
-                <a class="btn btn-primary" href="/controller?command=logout" role="button">Выйти</a>
+            <c:when test="${not empty sessionScope.person}">
+                <a class="nav-link" href="/carshowroom-1.0-SNAPSHOT/controller?command=cab" role="button">Личный кабинет</a>
+                <a class="nav-link" href="/carshowroom-1.0-SNAPSHOT/controller?command=task" role="button">Список книг</a>
+                <a class="nav-link" href="/carshowroom-1.0-SNAPSHOT/controller?command=allDetails" role="button">Мои книги</a>
+                <a class="btn btn-primary" href="/carshowroom-1.0-SNAPSHOT/controller?command=logout" role="button">Выйти</a>
             </c:when>
             <c:otherwise>
-                <a class="btn btn-primary" href="/controller?command=login" role="button">Войти</a>
-                <a class="nav-link" href="/controller?command=registration" role="button">Регистрация</a>
+                <a class="btn btn-primary" href="/carshowroom-1.0-SNAPSHOT/controller?command=login" role="button">Войти</a>
+                <a class="nav-link" href="/carshowroom-1.0-SNAPSHOT/controller?command=registration" role="button">Регистрация</a>
             </c:otherwise>
         </c:choose>
     </nav>

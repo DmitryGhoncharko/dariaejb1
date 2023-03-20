@@ -11,14 +11,14 @@ import org.hibernate.Session;
 
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Slf4j
-@Singleton
+@RequiredArgsConstructor
 public class SimpleBookRepository implements BookRepository{
-    @EJB
+
     private final HibernateSessionFactoryUtil hibernateSessionFactoryUtil;
 
     @Override

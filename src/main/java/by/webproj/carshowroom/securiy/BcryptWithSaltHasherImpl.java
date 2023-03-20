@@ -6,7 +6,6 @@ import javax.ejb.Singleton;
 
 
 @Slf4j
-@Singleton
 public class BcryptWithSaltHasherImpl implements PasswordHasher {
     private static final String SALT = BCrypt.gensalt();
 

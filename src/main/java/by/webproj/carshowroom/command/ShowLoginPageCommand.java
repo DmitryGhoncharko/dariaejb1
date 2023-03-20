@@ -1,15 +1,13 @@
 package by.webproj.carshowroom.command;
 
-import by.webproj.carshowroom.controller.RequestFactory;
+import by.webproj.carshowroom.controller.SimpleRequestFactory;
 import by.webproj.carshowroom.exception.ServiceError;
+import lombok.RequiredArgsConstructor;
 
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
+@RequiredArgsConstructor
+public class ShowLoginPageCommand implements Command{
 
-@Stateless
-public class ShowMainPageCommand implements Command{
-    @EJB
-    private RequestFactory requestFactory;
+    private final SimpleRequestFactory requestFactory;
     @Override
     public CommandResponse execute(CommandRequest request) throws ServiceError {
         return requestFactory.createForwardResponse(PagePath.LOGIN_PAGE.getPath());

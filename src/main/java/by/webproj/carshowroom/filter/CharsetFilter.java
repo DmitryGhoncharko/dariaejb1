@@ -1,11 +1,14 @@
 package by.webproj.carshowroom.filter;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.io.IOException;
 
 public class CharsetFilter implements Filter {
-
     private String encoding;
 
     public void init(FilterConfig config) throws ServletException {

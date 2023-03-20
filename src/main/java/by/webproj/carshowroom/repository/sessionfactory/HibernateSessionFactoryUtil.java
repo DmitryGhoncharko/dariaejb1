@@ -14,9 +14,6 @@ import javax.ejb.Singleton;
 public class HibernateSessionFactoryUtil {
     private static SessionFactory sessionFactory;
 
-    private HibernateSessionFactoryUtil() {
-    }
-
     public SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {

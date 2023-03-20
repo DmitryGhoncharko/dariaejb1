@@ -2,11 +2,15 @@ package by.webproj.carshowroom.service;
 
 import by.webproj.carshowroom.entity.Person;
 
-public interface PersonService {
-    boolean login(String login, String password);
+import java.util.Optional;
 
-    void logout();
+public interface PersonService {
+    Optional<Person> login(String login, String password);
 
     boolean registration(String name, String yearOfBirdth, String login, String password);
 
+
+    Optional<Person> getByLogin(String login);
+
+    void update(String name, String yearOfBirdth, String id, String login, String password);
 }

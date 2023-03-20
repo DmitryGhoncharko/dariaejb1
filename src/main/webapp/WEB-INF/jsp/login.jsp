@@ -182,7 +182,7 @@
 <div class="container-fluide">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal needs-validation" action="/controller?command=logincmnd" method="post" novalidate>
+            <form class="form-horizontal needs-validation" action="/carshowroom-1.0-SNAPSHOT/controller?command=logincmnd" method="post" novalidate>
                 <span class="heading">Авторизация</span>
                 <div class="form-group">
                     <input type="text" pattern="^[a-zA-Z0-9]{6,100}$" class="form-control needs-validation" id="validationServer03" name="login" placeholder="Ваш логин" required>
@@ -197,7 +197,6 @@
                       Пароль должен быть минимум шесть символов, пароль должен содержать буквы цифры и спец символы
                     </div>
                 </div>
-
                 <div class="form-group">
                     <c:if test="${not empty requestScope.errorLoginPassMessage}">
                         <b>Неверный логин или пароль</b>
@@ -207,13 +206,12 @@
                     <button type="submit" class="btn btn-default">Войти</button>
                         </div>
                         <div class="col-md-6">
-                        <a class="btn btn-default" href="/controller?command=registration">Зарегистрироваться</a>
+                        <a class="btn btn-default" href="/carshowroom-1.0-SNAPSHOT/controller?command=registration">Зарегистрироваться</a>
                         </div>
                         </div>
                     </div>
             </form>
         </div>
-
     </div>
 </div>
 </body>
